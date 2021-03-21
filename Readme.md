@@ -7,7 +7,7 @@ This script adds the relevant functions to draw and use an iso-grid to Grid Pain
 Install the Resource Override extension from your browser's relevant addon/extension store. See [the project and readme on Github](https://github.com/kylepaulsen/ResourceOverride) for details.
 
 Add two tab groups with the following configurations respectively: 
-* For `*grid-paint.com/*`, add a URL -> File rule with the url parameter `*/js/grid-hex.js`. Add the contents of the file [grid-hex.js](grid-hex.js) to the Edit File dialog.
+* For `*grid-paint.com/*`, add an Inject File rule with the url parameter `*/js/grid-iso-hex.js`. Add the contents of the file [grid-iso-hex.js](grid-iso-hex.js) to the Edit File dialog.
 * For `*grid-paint.com/new-image`, add an Inject File rule, selecting File Type: `js` and Inject into: `Body`. Add the contents of the file [iso-hex-creator.js](iso-hex-creator.js) to the Edit File dialog.
 
 <img src="https://i.imgur.com/gpxuOCf.png">
@@ -28,13 +28,15 @@ The resulting editor should look something like this!
 
 ## How It Works
 
-The `GridIsoHex` class registered in [grid-hex.js](grid-hex.js) uses the same URL parameter mechanic, the `artwork_grid` parameter, as the existing grid types. It registers a new grid handler in the `gridFactory` variable, enabling the use of the grid identifier `iso-hex` to draw and manage the new grid.
+The `GridIsoHex` class in [grid-iso-hex.js](grid-iso-hex.js) is registered as a new grid handler for `iso-hex` grids in the `gridFactory` dictionary, enabling the existing `artwork_grid` URL parameter with the value `iso-hex` to use `GridIsoHex` to draw and manage the new grid.
 
 The grid creation and drawing all happens through this new class, meaning you can skip the `*grid-paint.com/new-image` Inject File rule mentioned above if you only create new images by manually navigate to the URL.
 
-The [grid-hex.js](grid-hex.js) file also contains the content of the original file after the new `iso-hex` class to ensure the exisitng `hex` grid still works.
-
 It appears the `iso-hex` was originally intended to be a part of the site or was an option that was subsequently removed, given comments in `grids.js` reference an `iso-hex` grid.
+
+## Changes
+
+* Redirecting `grid-hex.js` to the Resource Override file has been replaced with loading in [grid-iso-hex.js](grid-iso-hex.js). This was previously required as I was overriding `hex` grid creation during initial development, but now `iso-hex` is used as the grid type and no functions are being overriden, so it can be moved to it's own file and registered on the `DOMContentLoaded` event.
 
 ## Known Issues
 
