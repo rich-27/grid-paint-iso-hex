@@ -36,6 +36,10 @@ The [grid-hex.js](grid-hex.js) file also contains the content of the original fi
 
 It appears the `iso-hex` was originally intended to be a part of the site or was an option that was subsequently removed, given comments in `grids.js` reference an `iso-hex` grid.
 
+## Known Issues
+
+* Saving does not currently seem to work. My theory is that this is due to the server not supporting the `iso-hex` grid value. I think I need to hook into the save dialog form submission to persist it as a `hex` grid, and then catch image loading and swap out the grid type. The iso-hex grid type could potentially be stored in a tag.
+
 ## Authors
 
 I made this to facilitate easy design prototyping for the game Opus Magnum. All rights and credit for Grid Paint belong to Vlad Alexeev. Vlad, feel free to use my code to add official `iso-hex` support if desired!
