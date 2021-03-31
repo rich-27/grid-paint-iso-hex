@@ -5,7 +5,6 @@ function addIsoHexGridSelector(){
     isoHexGrid = isoHexGridContainer.firstElementChild;
     isoHexGrid.id = 'iso-hex';
     hexGridContainer.insertAdjacentElement("afterend",isoHexGridContainer);
-    console.log('Created iso-hex element');
 }
 
 document.addEventListener("DOMContentLoaded", addIsoHexGridSelector);
