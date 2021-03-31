@@ -1,4 +1,4 @@
-/* Adds a new grid type, iso-hex */
+// Adds a new grid type, iso-hex
 
 /**
  * Return array of 6 points of shape in array with
@@ -532,9 +532,13 @@ function GridIsoHex() {
 	}
 }
 
-document.addEventListener("DOMContentLoaded", function(){
+function registerIsoHexGrid() {
     // Register grid
     gridFactory["iso-hex"]=function() {
     	return new GridIsoHex();
     }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    $('script').filter(function() { return $(this).attr('src') === "/js/grids.js"; }).after('<script>registerIsoHexGrid()</script>');
 });

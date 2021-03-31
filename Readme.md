@@ -36,6 +36,7 @@ It appears the `iso-hex` was originally intended to be a part of the site or was
 
 ## Changes
 
+* Swapped registering the iso-hex grid on the `DOMContentLoaded` event for programmatically injecting an additional script element to ensure the grid is loaded after `/js/grids.js`, which initialises the `gridsFactory` dictionary.  This should fix an intermittent bug causing iso-hex grids not to render.
 * Redirecting `grid-hex.js` to the Resource Override file has been replaced with loading in [grid-iso-hex.js](grid-iso-hex.js). This was previously required as I was overriding `hex` grid creation during initial development, but now `iso-hex` is used as the grid type and no functions are being overriden, so it can be moved to it's own file and registered on the `DOMContentLoaded` event.
 
 ## Known Issues
