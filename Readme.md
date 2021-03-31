@@ -13,7 +13,7 @@ Add two tab groups with the following configurations respectively:
     * An Inject File rule with the url parameter `/js/iso-hex-load.js`. Select File Type: `js` and Inject into: `Body`. Add the contents of the file [iso-hex-load.js](iso-hex-load.js) to the Edit File dialog.
 * For `*grid-paint.com/new-image`, add an Inject File rule with the url parameter `/js/iso-hex-creator.js`. Select File Type: `js` and Inject into: `Body`. Add the contents of the file [iso-hex-creator.js](iso-hex-creator.js) to the Edit File dialog.
 
-<img src="https://i.imgur.com/55fZkTA.png">
+<img src="https://i.imgur.com/tQtBf1F.png">
 
 Navigate to [Grid Paint's New Image page](https://www.grid-paint.com/new-image), and you should see the new iso-hex image type, as below.
 
